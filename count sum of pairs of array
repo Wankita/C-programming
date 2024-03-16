@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+int countpair(int n, int sum,int arr[])
+{
+    int sum_of_pairs = 0;
+    int count = 0;
+    for(int i=0;i<n-1;i++)
+    {
+        for(int j=i+1;j<n; j++)
+        {
+            sum_of_pairs=arr[i]+arr[j];
+            if(sum_of_pairs == sum)
+            {
+                count++;
+                cout<<"("<<arr[i]<<","<<arr[j]<<")"<<endl;
+            }
+        }
+    }
+    return count;
+}
+int main()
+{
+    //int n = 5;
+    //int sum = 6;
+    //int arr[] = {5,4,1,-1,7};
+    int n;
+    cout<<"Enter size of array: ";
+    cin>>n;
+    int sum;
+    cout<<"Enter sum of pair: ";
+    cin>>sum;
+    int arr[n];
+    cout<<"Enter elements of array: "<<endl;
+    for(int i=0;i<n;i++)
+    {
+        cin>>arr[i];
+    }
+    cout<<countpair(n,sum,arr)<<endl;
+    return 0;
+}
